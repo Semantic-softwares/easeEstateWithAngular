@@ -10,6 +10,11 @@ export const DASHBOARD_ROUTES: Routes = [
         title: "EaseEsate: No 1 most reliable estate App - Notice Center",
         loadComponent: () => import('./notices/notices.component').then((m) => m.NoticesComponent),
       },
+      {
+        path: 'polls',
+        title: "EaseEsate: No 1 most reliable estate App - Notice Center",
+        loadComponent: () => import('./poll-voting/poll-voting.component').then((m) => m.PollVotingComponent),
+      },
     ]
   },
 ]

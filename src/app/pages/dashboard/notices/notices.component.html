@@ -1,25 +1,44 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="min-h-screen bg-gray-100 p-3 relative mx-auto">
+  <div class="w-full mx-auto" style="scroll-snap-type: x mandatory;">
+    <div *ngFor="let notice of notices" class="">
+      <input class="sr-only peer" type="radio" name="carousel" [id]="'carousel-' + notice.id"
+        [checked]="notice.id === selectedNotice.id" />
+      <div
+        class="w-[90%] max-w-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
+        <div class="flex items-center justify-start md:justify-center mb-5 md:mb-10">
+          <h2 class="text-lg md:text-2xl font-medium bg-primary text-white rounded-lg py-2 px-5 md:py-3">
+            {{ notice.subject }}
+          </h2>
+        </div>
+        <div class="h-[380px] md:h-[400px] overflow-hidden bg-white rounded-lg shadow-lg">
+          <img class="rounded-t-lg w-full object-cover h-56 md:h-64" [src]="notice.imageUrl" alt="" />
+          <div class="py-4 px-8">
+            <h1
+              class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-lg tracking-tight overflow-hidden line-clamp-1 md:line-clamp-2">
+              {{ notice.title }}</h1>
+            <p
+              class="hover:cursor-pointer py-3 text-gray-600 font-normal text-sm md:text-base leading-6 overflow-hidden line-clamp-3">
+              {{ notice.content }}
+            </p>
+          </div>
+          <div class="absolute mt-10 justify-center md:top-1/2 w-full flex md:justify-between z-20">
+            <label [for]="'carousel-' + (notice.id === notices.length ? 1 : notice.id + 1)"
+              class="inline-block cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 512 512">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+                  d="M328 112L184 256l144 144" />
+              </svg>
+            </label>
+            <label [for]="'carousel-' + (notice.id === 1 ? notices.length : notice.id - 1)"
+              class="inline-block cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 512 512">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+                  d="M184 112l144 144-144 144" />
+              </svg>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
