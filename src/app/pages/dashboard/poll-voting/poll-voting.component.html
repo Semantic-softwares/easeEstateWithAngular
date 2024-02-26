@@ -1,25 +1,51 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let poll"> {{poll.id}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let poll"> {{poll.date}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let poll"> {{poll.description}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let poll"> {{poll.status}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="body">
+  <div class="wrapper p-4 md:p-[30px]">
+    <header class="font-semibold text-lg md:text-2xl">What design tool do you use the most?</header>
+    <div class="poll-area">
+      <input type="checkbox" name="poll" id="opt-1">
+      <input type="checkbox" name="poll" id="opt-2">
+      <input type="checkbox" name="poll" id="opt-3">
+      <input type="checkbox" name="poll" id="opt-4">
+      <label for="opt-1" class="opt-1 rounded-md">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text-sm md:text-base font-medium">Photoshop</span>
+          </div>
+          <span class="percent text-sm md:text-base font-medium">55% </span>
+        </div>
+        <div class="progress" id="pstyle1" style='--w:55;'></div>
+      </label>
+      <label for="opt-2" class="opt-2 rounded-md">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text text-sm md:text-base font-medium">Adobe XD</span>
+          </div>
+          <span class="percent text-sm md:text-base font-medium">99% </span>
+        </div>
+        <div class="progress" id="pstyle2" style='--w:99;'></div>
+      </label>
+      <label for="opt-3" class="opt-3 rounded-md">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text text-sm md:text-base font-medium">Figma</span>
+          </div>
+          <span class="percent text-sm md:text-base font-medium">68% </span>
+        </div>
+        <div class="progress" id="pstyle3" style='--w:68;'></div>
+      </label>
+      <label for="opt-4" class="opt-4 rounded-md">
+        <div class="row">
+          <div class="column">
+            <span class="circle"></span>
+            <span class="text text-sm md:text-base font-medium">Figma</span>
+          </div>
+          <span class="percent text-sm md:text-base font-medium">68% </span>
+        </div>
+        <div class="progress" id="pstyle4" style='--w:68;'></div>
+      </label>
+    </div>
+  </div>
+</div>
