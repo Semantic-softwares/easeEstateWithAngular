@@ -16,7 +16,7 @@ export const DASHBOARD_ROUTES: Routes = [
         loadComponent: () => import('./polls/polls.component').then((m) => m.PollsComponent),
       },
       {
-        path: 'poll-vote',
+        path: 'polls/:pollId',
         title: "EaseEsate: No 1 most reliable estate App - Polling Center",
         loadComponent: () => import('./poll-voting/poll-voting.component').then((m) => m.PollVotingComponent),
       },

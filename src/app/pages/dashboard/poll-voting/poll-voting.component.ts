@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-poll-voting',
@@ -11,8 +12,6 @@ import {MatTableModule} from '@angular/material/table';
 })
 
 export class PollVotingComponent implements AfterViewInit {
-
-  constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit() {
     const options = document.querySelectorAll('label');
@@ -31,6 +30,16 @@ export class PollVotingComponent implements AfterViewInit {
           if (progress) progress.style.display = 'block';
         });
       });
+    });
+  }
+
+    pollId: string = "1";
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.pollId = params['pollId'];
     });
   }
 }
