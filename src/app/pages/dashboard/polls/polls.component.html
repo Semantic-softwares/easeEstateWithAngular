@@ -16,13 +16,17 @@
 
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let poll"> {{poll.status}} </td>
+    <td mat-cell *matCellDef="let poll" [ngClass]="{
+        'text-green-500': poll.status === 'Active',
+        'text-red-500': poll.status === 'Inactive',
+        'text-yellow-500': poll.status === 'Pending'
+      }"> {{poll.status}} </td>
   </ng-container>
 
   <ng-container matColumnDef="vote">
-    <th mat-header-cell *matHeaderCellDef> Vote </th>
+    <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let poll">
-      <button mat-button color="primary" (click)="vote(poll.id)">Vote</button>
+      <button mat-button class="text-grey font-medium" (click)="vote(poll.id)">View Poll</button>
     </td>
   </ng-container>
 

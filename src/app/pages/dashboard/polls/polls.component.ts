@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -25,7 +26,7 @@ const Poll_DATA: PollInfo[] = [
 @Component({
   selector: 'app-polls',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, CommonModule],
   templateUrl: './polls.component.html',
   styleUrls: ['./polls.component.scss']
 })
